@@ -4,8 +4,7 @@ var data = require("../../../htdocs/data/game.json")
 
 var Game = function( container ){
 	var _this = this;
-	this.lastAudio;
-
+	
 	this.sounds = [] ;
 
 	for (var i = data.sounds.length - 1; i >= 0; i--) {
@@ -13,15 +12,30 @@ var Game = function( container ){
 		if(sound.level == window.game.level) this.sounds.push( sound );
 	};
 
-	container.innerHTML = Layout( this.sounds );
+	
 
-	this.gameContainer = container.querySelector(".game");
+  this.render(container);
 
 	this.gameContainer.onclick = function(e){ _this.playAudio(e); }
 
-	this.detectSwipe();
-
 	this.currentSoundIndex = 0;
+
+}
+
+Game.prototype.render = function(container){
+  if(!container) container = this.container.parentNode
+
+  container.innerHTML = Layout( this.sounds );
+  if(this.currentSoundIndex >= this.sounds.length)   this.currentSoundIndex = this.sounds.length-1;
+  
+  
+  this.gameContainer = container.querySelector(".game");
+  this.container = this.gameContainer;
+
+   if(!this.swipeDetected) {
+    this.detectSwipe();
+    this.swipeDetected = true;
+  }
 
 }
 
@@ -128,13 +142,40 @@ Game.prototype.detectSwipe = function(){
 
             }
 
-            if( !match ){
-              lbl_wrong.style.display = "block";
-              invalidateMatch(target);
+            function validateMatch(target, sound, _this){
+              setTimeout( function(){
+                lbl_wrong.style.display="none";
+                target.classList.remove("active")
+                target.remove();
+                var imageEl = _this.gameContainer.querySelector('.imageBox[data-name="'+ sound.name +'"]');
+                imageEl.remove();
+               // _this.render.call(_this);
+               console.log(_this.currentSoundIndex);
+               console.log(_this.sounds.length);
+               if( _this.currentSoundIndex == _this.sounds.length ){
+                _this.currentSoundIndex--;
+                var soundSlider = _this.gameContainer.querySelector(".soundSlider");
+                var machineSlider = _this.gameContainer.querySelector(".machineSlider");
+                soundSlider.style.left = parseInt( soundSlider.style.left.replace("px","") ) + 280 + "px"
+                machineSlider.style.left = parseInt( machineSlider.style.left.replace("px","") ) + 280 + "px"
+               }
+              },1000)
+
             }
 
-           
-            
+            if( !match ){
+              lbl_wrong.style.display = "block";
+              lbl_wrong.innerHTML= "Wrong :)"
+              invalidateMatch(target);
+            }
+            else{
+              lbl_wrong.style.display = "block";
+              lbl_wrong.innerHTML= "Correct! " + _this.sounds.length + " to go."
+              _this.sounds.splice( _this.currentSoundIndex, 1 );
+              validateMatch(target, sound, _this);
+
+            }
+
           }                                                                 
       }
       

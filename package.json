@@ -1,6 +1,6 @@
 {
   "name": "retrosounds",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Retrosounds Game",
   "previewUrl": "http://interactive.fusion.net/retrosounds/",
   "publishUrl": "gs://interactive.fusion.net/retrosounds/",
@@ -20,9 +20,7 @@
       "browserify-eco"
     ]
   },
-  "browserify-shim": {
-
-  },
+  "browserify-shim": {},
   "devDependencies": {
     "browser-sync": "~1.3.6",
     "browserify": "~5.10.1",
