@@ -23,11 +23,33 @@ var Game = function( container ){
 
 }
 
+Game.prototype.shuffle = function(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex ;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+
 Game.prototype.render = function(container){
   if(!container) container = this.container.parentNode
 
+  this.sounds.shuffle = this.shuffle;
   container.innerHTML = Layout( this.sounds );
   
+
+
   this.gameContainer = container.querySelector(".game");
   this.container = this.gameContainer;
 
@@ -176,7 +198,7 @@ Game.prototype.detectSwipe = function(){
             }
             else{
               lbl_wrong.style.display = "block";
-              lbl_wrong.innerHTML= "Correct! " + _this.sounds.length + " to go."
+              lbl_wrong.innerHTML= "Correct! " + ( _this.sounds.length - 1 ) + " to go."
               _this.sounds.splice( _this.currentMachineIndex, 1 );
               validateMatch(target, sound, _this);
 

@@ -19,7 +19,7 @@
 
 	<div style="left: 34px" class="machineSlider">
 	
-	<% sounds = @reverse() %>
+	<% sounds = @shuffle(@) %>
 	
 	<% for sound in sounds: %>
 
