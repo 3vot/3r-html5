@@ -3,7 +3,7 @@
 	
 	<div class="soundSlider">
 
-	<% for sound in @sounds: %>
+	<% for sound in @: %>
 
 	<div data-id="<%= sound.name %>" class="audioBox">
 		<img src="<%= window.game.path %>/images/soundIcon.png"/>
@@ -17,7 +17,7 @@
 
 	<div class="machineSlider">
 		
-	<% for sound in @sounds: %>
+	<% for sound in @: %>
 
 			<div data-id="<%= sound.name %>" class="imageBox">
 				<img src="<%= window.game.path %>/images/<%= sound.name %>.png"/>
