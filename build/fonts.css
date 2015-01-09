@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Oswald";
+  src: url("/fonts/oswald.otf"); }
+
+@font-face {
+  font-family: "Crete Round";
+  src: url(/fonts/crete-round.otf); }
+
+@font-face {
+  font-family: "Open Sans";
+  src: url(/fonts/opensans-regular.woff) format('woff'), url(/fonts/opensans-regular.eot) format('embedded-opentype'); }
+
+@font-face {
+  font-family: "Open Sans 300";
+  src: url(http://fonts.googleapis.com/css?family=Open+Sans:300); }
+
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZvbnRzLnNhc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtFQUNDLGFBQWE7RUFDYixLQUFLOzs7RUFHTCxhQUFhO0VBQ2IsS0FBSzs7O0VBR0wsYUFBYTtFQUNiLEtBQW9EOzs7RUFHcEQsYUFBYTtFQUNiLEtBQUsiLCJmaWxlIjoiZm9udHMuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiQGZvbnQtZmFjZVxuXHRmb250LWZhbWlseTogXCJPc3dhbGRcIlxuXHRzcmM6IHVybChcIi9mb250cy9vc3dhbGQub3RmXCIpXG5cbkBmb250LWZhY2Vcblx0Zm9udC1mYW1pbHk6IFwiQ3JldGUgUm91bmRcIlxuXHRzcmM6IHVybCgvZm9udHMvY3JldGUtcm91bmQub3RmKVxuXG5AZm9udC1mYWNlXG5cdGZvbnQtZmFtaWx5OiBcIk9wZW4gU2Fuc1wiXG5cdHNyYzogdXJsKC9mb250cy9vcGVuc2Fucy1yZWd1bGFyLndvZmYpIGZvcm1hdCgnd29mZicpLCB1cmwoL2ZvbnRzL29wZW5zYW5zLXJlZ3VsYXIuZW90KSBmb3JtYXQoJ2VtYmVkZGVkLW9wZW50eXBlJylcblxuQGZvbnQtZmFjZVxuXHRmb250LWZhbWlseTogXCJPcGVuIFNhbnMgMzAwXCJcblx0c3JjOiB1cmwoaHR0cDovL2ZvbnRzLmdvb2dsZWFwaXMuY29tL2Nzcz9mYW1pbHk9T3BlbitTYW5zOjMwMClcbiJdLCJzb3VyY2VSb290IjoiL3NvdXJjZS8ifQ== */
