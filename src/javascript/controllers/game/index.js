@@ -95,14 +95,14 @@ Game.prototype.detectSwipe = function(){
             var limit = ( _this.sounds.length -1 ) * 280 * -1
             if( left >= limit ){
               target.style.left = left + "px";
-              _this.currentSoundIndex++;
+              if( target.classList.contains("machineSlider") ) _this.currentSoundIndex++;
             }
 
           } else {
           	left += 280;
           	if( left <= 0){
               target.style.left = left + "px";
-              _this.currentSoundIndex--;
+              if( target.classList.contains("machineSlider") ) _this.currentSoundIndex--;
             }
           }
       } else {
