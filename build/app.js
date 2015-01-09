@@ -13,7 +13,7 @@ button.onclick = function(){
 
 
 },{"./controllers/game":"/Users/roberto/proyectos/fusion/retrosounds/src/javascript/controllers/game/index.js"}],"/Users/roberto/proyectos/fusion/retrosounds/src/htdocs/data/game.json":[function(require,module,exports){
-module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports={
+module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports=module.exports={
 
 	"sounds":[
 
@@ -54,8 +54,11 @@ function Game( container ){
 		
 		var audio = target.querySelector("audio");
 		if(lastAudio) lastAudio.pause();
-		if(audio) audio.play();
-		lastAudio = audio;
+		if(audio){
+			audio.currentTime = 0;
+			audio.play();
+			lastAudio = audio;
+		}
 
 	}
 
@@ -114,7 +117,7 @@ module.exports = function(__obj) {
         sound = _ref[_i];
         __out.push('\n\n\t<div data-id="');
         __out.push(__sanitize(sound.name));
-        __out.push('" class="audioBox">\n\t\t<img src="/images/soundIcon.png"/>\n\t\t\t<audio class="');
+        __out.push('" class="audioBox">\n\t\t<img src="/images/soundIcon.png"/>\n\t\t\t<audio preload="auto" class="');
         __out.push(__sanitize(sound.name));
         __out.push('" src="/sounds/');
         __out.push(__sanitize(sound.name));

@@ -17,8 +17,11 @@ function Game( container ){
 		
 		var audio = target.querySelector("audio");
 		if(lastAudio) lastAudio.pause();
-		if(audio) audio.play();
-		lastAudio = audio;
+		if(audio){
+			audio.currentTime = 0;
+			audio.play();
+			lastAudio = audio;
+		}
 
 	}
 
