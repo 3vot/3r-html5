@@ -6,8 +6,8 @@
 	<% for sound in @sounds: %>
 
 	<div data-id="<%= sound.name %>" class="audioBox">
-		<img src="/images/soundIcon.png"/>
-			<audio preload="auto" class="<%= sound.name %>" src="/sounds/<%= sound.name %>.mp3" type="audio/mpeg"></audio>
+		<img src="<%= window.game.path %>/images/soundIcon.png"/>
+			<audio preload="auto" class="<%= sound.name %>" src="<%= window.game.path %>/sounds/<%= sound.name %>.mp3" type="audio/mpeg"></audio>
 		
 	</div>
 
@@ -20,7 +20,7 @@
 	<% for sound in @sounds: %>
 
 			<div data-id="<%= sound.name %>" class="imageBox">
-				<img src="/images/<%= sound.name %>.png"/>
+				<img src="<%= window.game.path %>/images/<%= sound.name %>.png"/>
 			</div>
 
 		<% end %>
