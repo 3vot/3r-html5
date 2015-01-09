@@ -100,12 +100,11 @@ Game.prototype.detectSwipe = function(){
 
           } else {
           	left += 280;
-          	if( left < 0){
+          	if( left <= 0){
               target.style.left = left + "px";
-              _this.currentSoundIndex++;
+              _this.currentSoundIndex--;
             }
           }
-          
       } else {
       		target = getUpDown();
           var lbl_wrong = document.querySelector(".game .lbl_wrong");
@@ -118,6 +117,7 @@ Game.prototype.detectSwipe = function(){
             target.classList.add("active")
             var sound = _this.sounds[_this.currentSoundIndex];
             var match = false;
+
             if( target.dataset.name == sound.name) match = true;
             
             function invalidateMatch(target){
