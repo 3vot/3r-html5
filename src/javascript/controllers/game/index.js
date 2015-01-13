@@ -187,7 +187,7 @@ Game.prototype.invalidateMatch = function(box){
   heart.classList.remove("active");
 
   setTimeout( function(){
-    if( _this.lifes == -5 ) return ScreenManager.emit("go", { screen: "retry", data: { level: _this.level } } );
+    if( _this.lifes == 0 ) return ScreenManager.emit("go", { screen: "retry", data: { level: _this.level } } );
     _this.lblInfo.innerHTML = "Match the sound!"
     box.classList.remove("active")
   },1000)
