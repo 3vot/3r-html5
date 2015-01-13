@@ -1,0 +1,71 @@
+.game
+	width: 100%
+	overflow: hidden
+	position: relative
+	height: 100%
+	background-color: rgb(98,217,185)
+
+
+	.lbl-info
+		display: block
+		text-align: center
+		margin-top: 20px
+		
+	.lbl-slide-info
+		display: block
+		text-align: center
+		margin-top: 20px
+		position: absolute
+		top: 155px
+		font-size: 12px
+		width: 100%
+
+
+	.soundSlider
+		padding: 10px 0px
+		width: 7000px
+		position: absolute
+		left: 16px
+		top: 80px
+
+	.machineSlider
+		overflow-x: scroll
+		padding: 10px 0px
+		width: 7000px
+		position: absolute
+		left: 16px
+		top: 195px
+
+	.audioBox
+		background-color: brown
+		width: 235px
+		height: 70px
+		display: inline-block
+		margin: 0px 11px
+		position: relative
+
+		&.active
+			top: 45px
+
+		img
+			display: block
+			width: 200px
+			margin: 5px auto
+
+
+
+	.imageBox
+		background-color: brown
+		width: 235px
+		height: 300px
+		display: inline-block
+		margin: 0px 11px
+
+		img
+			display: block
+			width: 200px
+			margin: 5px auto
+
+	.machineSlider , .soundSlider
+		-webkit-transition: left 1.3s 
+	 	transition: left 1.3s 

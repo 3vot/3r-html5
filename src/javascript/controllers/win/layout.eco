@@ -1,0 +1,12 @@
+<div class="win screen">
+
+  <p>Congratulations, you are a <%= @robot %>! Time to update your beeps and bops.</p>
+
+  <img src="/images/win-<%= @robot %>.png" />
+
+  <div class="btn-bar">
+  	<a class="btn">Share</a>
+  	<a class="btn">Next</a>
+  </div>
+
+</div>

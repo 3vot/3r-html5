@@ -3,11 +3,15 @@
 	var Screen = new events.EventEmitter();
 
 	var container = document.querySelector(".container");
+	var header = document.querySelector(".header");
+
 	var currentView;
 
 	Screen.views;
 
-	Screen.on("go", function( name  ){
+	Screen.on("go", function( params  ){
+
+		var name = params.screen;
 
 		var view = Screen.views[name];
 		
@@ -16,7 +20,8 @@
 			currentView.container.remove()
 		}
 		
-		currentView = new view(container);
+		header.style.display = "none";
+		currentView = new view(container, header, params.data);
 
 	});
 

@@ -1,21 +1,23 @@
 
-<div class="game">
+<div class="game screen">
 	
-	<span class="lbl_wrong">Wrong!</span>
+	<span class="lbl-info">Match the Sound!</span>
 
 	<div style="left: 34px" class="soundSlider">
 
-	<% for sound in @: %>
+		<% for sound in @: %>
 
-	<div data-name="<%= sound.name %>" class="audioBox box">
-		<img src="<%= window.game.path %>/images/soundIcon.png"/>
-			<audio preload="auto" class="<%= sound.name %>" src="<%= window.game.path %>/sounds/<%= sound.name %>.mp3" type="audio/mpeg"></audio>
-		
-	</div>
+		<div data-name="<%= sound.name %>" class="audioBox box">
+			<img src="<%= window.game.path %>/images/soundIcon.png"/>
+			<audio preload="auto" class="<%= sound.name %>" src="<%= window.game.path %>/sounds/<%= sound.name %>.mp3" type="audio mpeg"></audio>
+		</div>
 
 	<% end %>
 
 	</div>
+
+	<span class="lbl-slide-info">Slide down to connect</span>
+
 
 	<div style="left: 34px" class="machineSlider">
 	

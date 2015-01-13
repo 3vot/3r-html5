@@ -9,7 +9,7 @@ function Home(container){
 	
 
 	button.onclick = function(){
-		ScreenManager.emit("go", "game");
+		ScreenManager.emit("go", { screen: "game", data: {}});
 	}
 
 }

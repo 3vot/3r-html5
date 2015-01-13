@@ -1,18 +1,23 @@
 var Layout = require("./layout");
 var Swiper = require("./swiper");
-
+var ScreenManager = require("../../managers/screenManager");
 var data = require("../../../htdocs/data/game.json")
 
-var Game = function( container ){
+var Game = function( container, header, screenData ){
 	var _this = this;
-	
-  this.moveBy = 261;
+	this.header = header;
 
+  header.style.display = "block";
+  this.lifes = 3;
+  this.level = screenData.level || 1;
+  this.moveBy = 261;
 	this.sounds = [] ;
+
+  this.header.querySelector(".hearts").innerHTML = '<span class="heart active"></span><span class="heart active"></span><span class="heart active"></span>';
 
 	for (var i = data.sounds.length - 1; i >= 0; i--) {
 		var sound = data.sounds[i];
-		if(sound.level == window.game.level) this.sounds.push( sound );
+		if(sound.level == this.level) this.sounds.push( sound );
 	};
 
   this.render(container);
@@ -21,7 +26,6 @@ var Game = function( container ){
 
 	this.currentSoundIndex = 0;
   this.currentMachineIndex = 0;
-
 }
 
 Game.prototype.shuffle = function(array) {
@@ -54,7 +58,7 @@ Game.prototype.render = function(container){
 
   this.soundSlider = this.gameContainer.querySelector(".soundSlider");
   this.machineSlider = this.gameContainer.querySelector(".machineSlider");
-  this.lbl_wrong = this.gameContainer.querySelector(".lbl_wrong");
+  this.lblInfo = this.gameContainer.querySelector(".lbl-info");
 
 
   if(!this.swipeDetected) {
@@ -154,13 +158,13 @@ var _this = this;
     if( box.dataset.name == sound.name) match = true;
 
     if( !match ){
-      _this.lbl_wrong.style.display = "block";
-      _this.lbl_wrong.innerHTML= "Wrong :)"
+      _this.lblInfo.style.display = "block";
+      _this.lblInfo.innerHTML= "Wrong :)"
       _this.invalidateMatch(box);
     }
     else{
-      _this.lbl_wrong.style.display = "block";
-      _this.lbl_wrong.innerHTML= "Correct! " + ( _this.sounds.length - 1 ) + " to go."
+      _this.lblInfo.style.display = "block";
+      _this.lblInfo.innerHTML= "Correct! " + ( _this.sounds.length - 1 ) + " to go."
       _this.sounds.splice( _this.currentMachineIndex, 1 );
       _this.validateMatch(box, sound, _this);
     }
@@ -178,8 +182,13 @@ var _this = this;
 
 Game.prototype.invalidateMatch = function(box){
   var _this = this;
+  this.lifes--;
+  var heart = this.header.querySelector(".heart.active")
+  heart.classList.remove("active");
+
   setTimeout( function(){
-    _this.lbl_wrong.style.display="none";
+    if( _this.lifes == -5 ) return ScreenManager.emit("go", { screen: "retry", data: { level: _this.level } } );
+    _this.lblInfo.innerHTML = "Match the sound!"
     box.classList.remove("active")
   },1000)
 
@@ -187,7 +196,7 @@ Game.prototype.invalidateMatch = function(box){
 
 Game.prototype.validateMatch = function(box, sound, _this){
   setTimeout( function(){
-    _this.lbl_wrong.style.display="none";
+    _this.lblInfo.style.display="none";
     box.classList.remove("active")
     box.remove();
     var imageEl = _this.gameContainer.querySelector('.imageBox[data-name="'+ sound.name +'"]');
@@ -202,6 +211,9 @@ Game.prototype.validateMatch = function(box, sound, _this){
       _this.currentMachineIndex--;
       _this.machineSlider.style.left = parseInt( _this.machineSlider.style.left.replace("px","") ) + _this.moveBy + "px"
     }
+  
+    if(_this.sounds.length == 0) return ScreenManager.emit("go", { screen: "win", data: { level: this.level } } );
+
   },1000)
 
 }
