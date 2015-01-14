@@ -37,15 +37,20 @@
 		top: 195px
 
 	.audioBox
+		cursor: pointer
 		background-color: brown
 		width: 235px
 		height: 70px
 		display: inline-block
 		margin: 0px 11px
 		position: relative
-		transition: all 1s 
-		-webkit-transition: all 1s 
+		transition: top 0.7s , width 0.6s, opacity 0.5s
+		-webkit-transition: top 0.7s , width 0.6s, opacity 0.5s
 		top: 0px
+
+		&.mobile
+			transition: top 0.7s , width 0.6s, opacity 0.5s
+			-webkit-transition: top 0.7s , width 0.6s, opacity 0.5s
 
 		&.active
 			top: 110px
@@ -66,19 +71,20 @@
 		display: inline-block
 		margin: 0px 11px
 
+
 		.drop-target
 			width: 80%
 			margin: 20px auto
 			border: 1px dashed #333
-			height: 40px
+			height: 55px
 
 			img
 				width: 100%
 				display: none
 				height: 100%
 
-			&.over
-				background-color: #333
+		&.over
+			opacity: 0.7
 
 
 
@@ -88,7 +94,7 @@
 		&.right
 			border: 3px solid green
 
-		img
+		img.machine
 			display: block
 			width: 200px
 			margin: 5px auto

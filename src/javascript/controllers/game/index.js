@@ -74,16 +74,19 @@ Game.prototype.render = function(container){
     col.addEventListener('dragstart', function(e){ _this.handleDragStart(e, this) }, false);
   });
 
-  var cols = this.machineSlider.querySelectorAll('.imageBox .drop-target');
+  var cols = this.machineSlider.querySelectorAll('.imageBox');
   [].forEach.call(cols, function(col) {
-    
     col.addEventListener('dragenter', function(e){ _this.handleDragEnter(e, this) }, false);
     col.addEventListener('dragover', function(e){ _this.handleDragOver(e, this) }, false);
     col.addEventListener('dragleave', function(e){ _this.handleDragLeave(e, this) }, false);
-
     col.addEventListener('drop', function(e){ _this.handleDrop(e,this) } , false);
     col.addEventListener('dragend', function(e){ _this.handleDragEnd(e,this) } , false);
+  });
 
+  var cols = this.machineSlider.querySelectorAll('.imageBox .drop-target');
+  [].forEach.call(cols, function(col) {
+    col.addEventListener('drop', function(e){ _this.handleDrop(e,this) } , false);
+    col.addEventListener('dragend', function(e){ _this.handleDragEnd(e,this) } , false);
   });
 }
 
@@ -100,6 +103,9 @@ Game.prototype.handleDragOver = function(e, element) {
   if (e.preventDefault) {
     e.preventDefault(); // Necessary. Allows us to drop.
   }
+
+  if( element.dataset.match === "yes" ) return false;
+
   element.classList.add("over")
   
   e.dataTransfer.dropEffect = 'move';  // See the section on the DataTransfer object.
@@ -109,13 +115,15 @@ Game.prototype.handleDragOver = function(e, element) {
 
 Game.prototype.handleDragEnter = function(e, element) {
   var target = e.target;
-  while( target.classList == null && !target.classList.contains("imageBox") && !target.classList.contains(".game") ) target = target.parentNode
+  //while( target.classList == null && !target.classList.contains("imageBox") && !target.classList.contains(".game") ) target = target.parentNode
   
-  target.classList.add('over');
+  //target.classList.add('over');
 }
 
 Game.prototype.handleDragLeave = function(e, element) {
-  element.classList.remove('over'); 
+  var target = element;
+  while( target.classList == null || ( !target.classList.contains("imageBox") && !target.classList.contains(".game") ) ) target = target.parentNode
+  target.classList.remove('over'); 
 }
 
 Game.prototype.getSound = function( name ){
@@ -139,6 +147,12 @@ Game.prototype.removeSound = function( name ){
 Game.prototype.handleDrop = function(e, element) {
   if( e.stopPropagation ) e.stopPropagation();
 
+  var target = e.target;
+  while( target.classList == null || ( !target.classList.contains("imageBox") && !target.classList.contains(".game") ) ) target = target.parentNode
+  element = target;
+  
+  if( element.dataset.match === "yes" ) return false;
+  
   element.classList.remove("over");
 
   var data = JSON.parse( e.dataTransfer.getData('text') ) ;
@@ -153,13 +167,13 @@ Game.prototype.handleDrop = function(e, element) {
   if( !match ){
     this.lblInfo.style.display = "block";
     this.lblInfo.innerHTML= "Wrong :)"
-    this.invalidateMatch(audioBox,  element.parentNode );
+    this.invalidateMatch(audioBox,  element );
   }
   else{
     this.lblInfo.style.display = "block";
     this.lblInfo.innerHTML= "Correct! " + ( this.sounds.length - 1 ) + " to go."
     this.removeSound( data.name )
-    this.validateMatch(audioBox, element.parentNode );
+    this.validateMatch(audioBox, element );
   }
 
   return false;
@@ -167,8 +181,6 @@ Game.prototype.handleDrop = function(e, element) {
 
 Game.prototype.handleDragEnd = function(e, element) {
 }
-
-
 
 Game.prototype.playAudio = function(e){
 	var target = e.target;
@@ -182,7 +194,6 @@ Game.prototype.playAudio = function(e){
 		this.lastAudio = audio;
 	}
 }
-
 
 Game.prototype.goEast = function(left, slider){
   left -= this.moveBy;
@@ -263,6 +274,9 @@ var _this = this;
 
     var imageBox = _this.machineSlider.querySelector( '.imageBox[data-index="'+ _this.currentMachineIndex +'"]' )
 
+    if( imageBox.dataset.match === "yes" ) return false;
+    if( box.dataset.match === "yes" ) return false;
+
     if( imageBox.dataset.name == sound.name) match = true;
 
     //imageBox.querySelector("img").style.display = "block";
@@ -304,6 +318,7 @@ Game.prototype.invalidateMatch = function(box, imageBox){
     
     if(box) box.classList.remove("active")
     if(imageBox){
+      imageBox.classList.remove("over");
       imageBox.classList.remove("wrong");
       imageBox.querySelector("img").style.display = "none"; 
     }
@@ -316,53 +331,32 @@ Game.prototype.validateMatch = function(box, imageBox){
   
   imageBox.classList.add("right");
   imageBox.querySelector("img").style.display = "block";
+  imageBox.classList.remove("over");
+  imageBox.dataset.match = "yes";
 
+  box.style.width = "0px";
   box.style.opacity = 0;
-  
+
   setTimeout( function(){
     imageBox.classList.remove("right");
-
+    _this.lblInfo.innerHTML = "Match the sound!"
     box.remove();
 
-    if(_this.sounds.length == 0) return ScreenManager.emit("go", { screen: "win", data: { level: this.level } } );
-
-  }, 1000)
-
-}
-
-
-Game.prototype.validateMatchRemove = function(box, sound, _this, imageBox){
-  
-
-
-  setTimeout( function(){
-    _this.lblInfo.style.display="none";
-    //box.classList.remove("active");
-
-    imageBox.querySelector("img").style.display = "block";
-
-    box.remove();
-    
-    //var imageEl = _this.gameContainer.querySelector('.imageBox[data-name="'+ sound.name +'"]');
-    //imageEl.remove();
-   
-   // if( _this.currentSoundIndex == _this.sounds.length){
+       // if( _this.currentSoundIndex == _this.sounds.length){
     //  _this.currentSoundIndex--;
     //  _this.soundSlider.style.left = parseInt( _this.soundSlider.style.left.replace("px","") ) + _this.moveBy + "px"
     //}
 
-    /*
-    if( _this.currentMachineIndex == _this.sounds.length ){                
-      _this.currentMachineIndex--;
-      _this.machineSlider.style.left = parseInt( _this.machineSlider.style.left.replace("px","") ) + _this.moveBy + "px"
-    }
-    */
-  
     if(_this.sounds.length == 0) return ScreenManager.emit("go", { screen: "win", data: { level: this.level } } );
 
-  },1000)
+  }, 500)
+
+
 
 }
+
+
+
 
 
  
