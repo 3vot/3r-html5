@@ -47,9 +47,11 @@
 		&.active
 			top: 45px
 
+
 		img
 			display: block
 			width: 200px
+
 			margin: 5px auto
 
 
@@ -61,10 +63,38 @@
 		display: inline-block
 		margin: 0px 11px
 
+		.drop-target
+			width: 80%
+			margin: 20px auto
+			border: 1px dashed #333
+			height: 40px
+
+			img
+				width: 100%
+				display: none
+				height: 100%
+
+			&.over
+				background-color: #333
+
+
+
+		&.wrong
+			border: 3px solid red
+
+		&.right
+			border: 3px solid green
+
 		img
 			display: block
 			width: 200px
 			margin: 5px auto
+
+		
+
+
+	.imageBox:-moz-drag-over
+	  border: 1px solid black
 
 	.machineSlider , .soundSlider
 		-webkit-transition: left 1.3s 

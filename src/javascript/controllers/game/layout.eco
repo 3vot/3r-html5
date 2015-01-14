@@ -4,14 +4,15 @@
 	<span class="lbl-info">Match the Sound!</span>
 
 	<div style="left: 34px" class="soundSlider">
-
+		<% index = 0 %>
 		<% for sound in @: %>
 
-		<div data-name="<%= sound.name %>" class="audioBox box">
+		<div  draggable="true" data-index="<%= index %>" data-name="<%= sound.name %>" class="audioBox box">
 			<img src="<%= window.game.path %>/images/static/soundIcon.png"/>
 			<audio preload="auto" class="<%= sound.name %>" src="<%= window.game.path %>/sounds/<%= sound.name %>.mp3" type="audio mpeg"></audio>
 		</div>
 
+		<% index++ %>
 	<% end %>
 
 	</div>
@@ -20,15 +21,19 @@
 
 
 	<div style="left: 34px" class="machineSlider">
-	
+		
 	<% sounds = @shuffle(@) %>
-	
+	<% index = 0 %>
 	<% for sound in sounds: %>
 
-			<div data-name="<%= sound.name %>" class="imageBox box">
+			<div data-index="<%= index %>" data-name="<%= sound.name %>" class="imageBox box">
+				<div data-name="<%= sound.name %>" class="drop-target">
+				<img  src="<%= window.game.path %>/images/static/soundIcon.png"/>
+				</div>
 				<img src="<%= window.game.path %>/images/static/<%= sound.name %>.png"/>
 			</div>
 
+			<% index++ %>
 		<% end %>
 
 	</div>	
