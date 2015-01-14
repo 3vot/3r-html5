@@ -286,9 +286,7 @@ var _this = this;
     var box = getBox( data.event.target );
     box.classList.remove("active")
   });
-
 }
-
 
 Game.prototype.invalidateMatch = function(box, imageBox){
   var _this = this;
