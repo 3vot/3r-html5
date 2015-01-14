@@ -1,0 +1,25 @@
+.home {
+  max-width: 320px;
+  margin: 0 auto;
+  background-color: #a43e27;
+  padding-top: 0px;
+}
+.home .label {
+  width: 70%;
+  margin: 30px auto;
+  text-align: center;
+}
+.home .info {
+  width: 60%;
+  margin: 30px auto;
+  text-align: center;
+}
+.home .btn {
+  display: block;
+  margin: 0px auto;
+  margin-top: 30px;
+  background-color: #26768b;
+  padding: 10px 10px;
+  width: 70px;
+  text-align: center;
+}
