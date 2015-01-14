@@ -10,7 +10,7 @@
   },
   "scripts": {
     "pretest": "npm config set strict-ssl false",
-    "test": "gulp 3vot-stage -d;"
+    "test": "gulp 3vot-stage -s;"
   },
   "fusion": {
     "production": false
