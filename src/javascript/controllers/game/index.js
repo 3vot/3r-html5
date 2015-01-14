@@ -317,6 +317,8 @@ Game.prototype.validateMatch = function(box, imageBox){
   imageBox.classList.add("right");
   imageBox.querySelector("img").style.display = "block";
 
+  box.style.opacity = 0;
+  
   setTimeout( function(){
     imageBox.classList.remove("right");
 
@@ -330,12 +332,15 @@ Game.prototype.validateMatch = function(box, imageBox){
 
 
 Game.prototype.validateMatchRemove = function(box, sound, _this, imageBox){
+  
+
+
   setTimeout( function(){
     _this.lblInfo.style.display="none";
     //box.classList.remove("active");
 
     imageBox.querySelector("img").style.display = "block";
-    
+
     box.remove();
     
     //var imageEl = _this.gameContainer.querySelector('.imageBox[data-name="'+ sound.name +'"]');
