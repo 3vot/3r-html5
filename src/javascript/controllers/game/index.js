@@ -309,7 +309,7 @@ Game.prototype.invalidateMatch = function(box, imageBox){
       imageBox.classList.remove("wrong");
       imageBox.querySelector("img").style.display = "none"; 
     }
-  },1000)
+  },650)
 
 }
 
