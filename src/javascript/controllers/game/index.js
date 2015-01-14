@@ -265,10 +265,12 @@ var _this = this;
 
     if( imageBox.dataset.name == sound.name) match = true;
 
+    //imageBox.querySelector("img").style.display = "block";
+
     if( !match ){
       _this.lblInfo.style.display = "block";
       _this.lblInfo.innerHTML= "Wrong :)"
-      _this.invalidateMatch(box);
+      _this.invalidateMatch(box, imageBox);
     }
     else{
       _this.lblInfo.style.display = "block";
@@ -303,7 +305,10 @@ Game.prototype.invalidateMatch = function(box, imageBox){
     _this.lblInfo.innerHTML = "Match the sound!"
     
     if(box) box.classList.remove("active")
-    if(imageBox) imageBox.classList.remove("wrong");
+    if(imageBox){
+      imageBox.classList.remove("wrong");
+      imageBox.querySelector("img").style.display = "none"; 
+    }
   },1000)
 
 }
