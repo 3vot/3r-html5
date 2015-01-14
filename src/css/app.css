@@ -1,3 +1,6 @@
+@import url('fonts.css');
+
+
 html, body {
   margin: 0;
   padding: 0;
@@ -10,6 +13,8 @@ html, body {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+
 
 
 .header {
@@ -51,3 +56,10 @@ html, body {
   height: 100%;
   padding-top: 30px;
 }
+
+@import url('game.css');
+@import url('win.css');
+@import url('retry.css');
+@import url('home.css');
+
+
