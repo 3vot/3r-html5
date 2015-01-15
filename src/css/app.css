@@ -38,11 +38,12 @@ html, body {
   display: inline-block;
   height: 20px;
   width: 20px;
-  background-color: #fff;
+  background-image: url("/images/heart-empty.svg");
+  background-repeat: no-repeat; 
 }
 
 .header .hearts .heart.active {
-  background-color: red;
+  background-image: url("/images/heart-full.svg");
 }
 
 .container {
