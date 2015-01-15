@@ -14,7 +14,7 @@
   position: absolute;
   width: 95%;
   height: 95%;
-  z-index: 1;
+  pointer-events:none;
 
 }
 
@@ -56,5 +56,4 @@
   width: 70px;
   text-align: center;
   color: #FFFFFF;
-  z-index: 2;
 }
