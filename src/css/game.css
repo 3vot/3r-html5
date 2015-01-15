@@ -9,6 +9,8 @@
   display: block;
   text-align: center;
   margin-top: 20px;
+  font-family: "Crete Round";
+  color: #231D19
 }
 .game .lbl-slide-info {
   display: block;
@@ -36,7 +38,7 @@
 }
 .game .audioBox {
   cursor: pointer;
-  background-color: brown;
+  
   width: 235px;
   height: 70px;
   display: inline-block;
@@ -59,7 +61,6 @@
   margin: 5px auto;
 }
 .game .imageBox {
-  background-color: brown;
   width: 235px;
   height: 300px;
   display: inline-block;
