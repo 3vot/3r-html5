@@ -60,32 +60,39 @@
   width: 200px;
   margin: 5px auto;
 }
+
 .game .imageBox {
   width: 235px;
   height: 300px;
   display: inline-block;
   margin: 0px 11px;
 }
+
 .game .imageBox .drop-target {
   width: 80%;
   margin: 20px auto;
   border: 1px dashed #333;
   height: 55px;
 }
+
 .game .imageBox .drop-target img {
   width: 100%;
   display: none;
   height: 100%;
 }
-.game .imageBox.over {
-  opacity: 0.7;
+
+.game .imageBox.over .drop-target {
+  background: #333;
 }
+
 .game .imageBox.wrong {
   border: 3px solid red;
 }
+
 .game .imageBox.right {
   border: 3px solid green;
 }
+
 .game .imageBox img.machine {
   display: block;
   width: 200px;
