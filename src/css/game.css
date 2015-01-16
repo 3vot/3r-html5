@@ -5,6 +5,7 @@
   height: 100%;
   background-color: #62d9b9;
 }
+
 .game .lbl-info {
   display: block;
   text-align: center;
@@ -12,6 +13,7 @@
   font-family: "Crete Round";
   color: #231D19
 }
+
 .game .lbl-slide-info {
   display: block;
   text-align: center;
@@ -21,6 +23,7 @@
   font-size: 12px;
   width: 100%;
 }
+
 .game .soundSlider {
   padding: 10px 0px;
   width: 7000px;
@@ -28,6 +31,7 @@
   left: 16px;
   top: 80px;
 }
+
 .game .machineSlider {
   overflow-x: scroll;
   padding: 10px 0px;
@@ -36,9 +40,9 @@
   left: 16px;
   top: 195px;
 }
+
 .game .audioBox {
-  cursor: pointer;
-  
+  cursor: pointer;  
   width: 235px;
   height: 70px;
   display: inline-block;
@@ -48,13 +52,16 @@
   -webkit-transition: top 0.7s, width 0.6s, opacity 0.5s;
   top: 0px;
 }
+
 .game .audioBox.mobile {
   transition: top 0.7s, width 0.6s, opacity 0.5s;
   -webkit-transition: top 0.7s, width 0.6s, opacity 0.5s;
 }
+
 .game .audioBox.active {
   top: 110px;
 }
+
 .game .audioBox img {
   display: block;
   width: 200px;
@@ -103,4 +110,102 @@
 .machineSlider, .soundSlider {
   -webkit-transition: left 1.3s;
   transition: left 1.3s;
+}
+
+.game .soundSlider {
+  padding: 10px 0px;
+  width: 7000px;
+  position: absolute;
+  left: 34px;
+  top: 80px;
+}
+
+.game .machineSlider {
+  overflow-x: scroll;
+  padding: 10px 0px;
+  width: 7000px;
+  position: absolute;
+  left: 34px;
+  top: 195px;
+}
+
+@media screen and (max-width: 1000px) {
+  .game .soundSlider{
+    left: 0px;
+  }
+
+  .game .audioBox {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .game .machineSlider{
+    left: 0px;
+  }
+
+  .game .imageBox .drop-target{
+    background-position: 50%;
+  }
+
+  .game .imageBox {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+}
+
+
+@media screen and (min-width: 1000px) {
+  .game .soundSlider {
+    width: 100%;
+  }
+  
+  .game .audioBox {
+    width: 15%;
+  }
+
+  .game .audioBox img{
+    width: 100%;
+  }
+
+
+  .game .machineSlider {
+   width: 100%;
+  }
+
+
+  .game .imageBox {
+    width: 15%;
+  }
+
+  .game .imageBox img.machine{
+    width: 100%;
+  }
+
+}
+
+
+@media screen and (min-width: 1100px) {
+  .game .soundSlider {
+    width: 100%;
+  }
+  
+  .game .audioBox {
+    width: 17%;
+  }
+
+  .game .audioBox img{
+    width: 100%;
+  }
+
+
+  .game .machineSlider {
+   width: 100%;
+  }
+
+
+  .game .imageBox {
+    width: 17%;
+  }
+
 }

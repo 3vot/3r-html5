@@ -3,6 +3,9 @@ var Swiper = require("./swiper");
 var ScreenManager = require("../../managers/screenManager");
 var data = require("../../../htdocs/data/game.json")
 
+
+NodeList.prototype.forEach = Array.prototype.forEach;
+
 var Game = function( container, header, screenData ){
 	var _this = this;
 	this.header = header;
@@ -23,6 +26,12 @@ var Game = function( container, header, screenData ){
   this.render(container);
 
   this.currentMachineIndex=0;
+
+  window.onresize = function(){
+    _this.mobileSize();
+    _this.soundSlider.left = "0px";
+    _this.machineSlider.left = "0px";
+  }
 }
 
 Game.prototype.shuffle = function(array) {
@@ -44,6 +53,34 @@ Game.prototype.shuffle = function(array) {
   return array;
 }
 
+Game.prototype.width = function(){
+  var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    x = w.innerWidth || e.clientWidth || g.clientWidth,
+    y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+    return x;
+}
+
+Game.prototype.mobileSize = function(){
+  this.screenWidth = this.width();
+  var _this = this;
+
+  if( this.screenWidth < 1000){
+    this.moveBy = this.screenWidth;
+    
+    this.soundBoxes.forEach( function(element, index, array){
+      element.style.width = _this.moveBy + "px";
+    })
+
+    this.machineBoxes.forEach( function(element, index, array){
+      element.style.width = _this.moveBy + "px";
+    })
+
+  }
+}
+
 Game.prototype.render = function(container){
   if(!container) container = this.container.parentNode
   var _this = this;
@@ -56,8 +93,13 @@ Game.prototype.render = function(container){
 
   this.soundSlider = this.gameContainer.querySelector(".soundSlider");
   this.machineSlider = this.gameContainer.querySelector(".machineSlider");
+  this.soundBoxes = this.gameContainer.querySelectorAll(".audioBox");
+  this.machineBoxes = this.gameContainer.querySelectorAll(".imageBox");
+
   this.lblInfo = this.gameContainer.querySelector(".lbl-info");
   
+  this.mobileSize();
+
   this.lblInfo.onclick = function(){
     _this.lifes = 100;
   }
@@ -69,12 +111,12 @@ Game.prototype.render = function(container){
     this.soundSlider.onclick = function(e){ _this.playAudio(e); }
   }
 
-  var cols = this.soundSlider.querySelectorAll('.audioBox');
+  var cols = this.soundBoxes;
   [].forEach.call(cols, function(col) {
     col.addEventListener('dragstart', function(e){ _this.handleDragStart(e, this) }, false);
   });
 
-  var cols = this.machineSlider.querySelectorAll('.imageBox');
+  var cols = this.machineBoxes;
   [].forEach.call(cols, function(col) {
     col.addEventListener('dragenter', function(e){ _this.handleDragEnter(e, this) }, false);
     col.addEventListener('dragover', function(e){ _this.handleDragOver(e, this) }, false);
@@ -196,7 +238,11 @@ Game.prototype.playAudio = function(e){
 }
 
 Game.prototype.goEast = function(left, slider){
+  left = left || 0;
   left -= this.moveBy;
+
+  
+
   var limit = ( this.sounds.length -1 ) * this.moveBy * -1
   if( slider === this.machineSlider ) limit = 4  * this.moveBy * -1;
   if( left >= limit ){
@@ -207,9 +253,9 @@ Game.prototype.goEast = function(left, slider){
 }
 
 Game.prototype.goWest = function(left, slider){
-  
+  left = left || 0;
   left += this.moveBy;
-  console.log(left);
+  
   if( left <= 50){
     slider.style.left = left + "px";
     return true
@@ -228,6 +274,7 @@ Game.prototype.machineSwipe = function(){
   }
 
   swiper.on("east", function(){
+
     var left = getPosition();
      if ( _this.goEast(left, _this.machineSlider) ) _this.currentMachineIndex++;
      
@@ -347,7 +394,7 @@ Game.prototype.validateMatch = function(box, imageBox){
     //  _this.soundSlider.style.left = parseInt( _this.soundSlider.style.left.replace("px","") ) + _this.moveBy + "px"
     //}
 
-    if(_this.sounds.length == 0) return ScreenManager.emit("go", { screen: "win", data: { level: this.level } } );
+    if(_this.sounds.length == 0) return ScreenManager.emit("go", { screen: "win", data: { level: _this.level } } );
 
   }, 500)
 

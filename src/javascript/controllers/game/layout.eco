@@ -3,7 +3,7 @@
 	
 	<span class="lbl-info">Match the Sound!</span>
 
-	<div style="left: 34px" class="soundSlider">
+	<div  class="soundSlider">
 		<% index = 0 %>
 		<% for sound in @: %>
 
@@ -20,7 +20,7 @@
 	<span class="lbl-slide-info">Slide down to connect</span>
 
 
-	<div style="left: 34px" class="machineSlider">
+	<div class="machineSlider">
 		
 	<% sounds = @shuffle(@) %>
 	<% index = 0 %>
