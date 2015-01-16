@@ -17,6 +17,7 @@
 
 	</div>
 
+
 	<span class="lbl-slide-info">Slide down to connect</span>
 
 
@@ -28,7 +29,7 @@
 
 			<div data-index="<%= index %>" data-name="<%= sound.name %>" class="imageBox box">
 				<div data-name="<%= sound.name %>" class="drop-target">
-				<img class="sound"  src="<%= window.game.path %>/images/static/soundIcon.png"/>
+					<img class="sound"  src="<%= window.game.path %>/images/static/soundIcon.png"/>
 				</div>
 				<img class="machine" src="<%= window.game.path %>/images/static/<%= sound.name %>.png"/>
 			</div>

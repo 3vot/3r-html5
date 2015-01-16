@@ -1,12 +1,22 @@
 <div class="win screen">
 
-  <p>Congratulations, you are a <%= @robot %>! Time to update your beeps and bops.</p>
+  <p>Congratulations, you are a <%= @robot %>! 
+
+  <% if( @level < 3 ): %>
+  	Time to update your beeps and bops.</p>
+  <% end %>
 
   <img src="/images/win-<%= @robot %>.png" />
 
   <div class="btn-bar">
   	<a class="btn btn-share">Share</a>
-  	<a class="btn btn-next">Next</a>
-  </div>
 
+  	
+  	<a class="btn btn-next">
+  	  <% if( @level < 3 ): %>
+  		  
+  		  Play Again
+  		<% end %>
+    </a>
+  </div>
 </div>
