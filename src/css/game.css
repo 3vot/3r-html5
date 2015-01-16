@@ -75,6 +75,8 @@
   margin: 0px 11px;
 }
 
+
+
 .game .imageBox .drop-target {
   width: 60%;
   margin: 20px auto;
@@ -83,14 +85,15 @@
   height: 60px;
 }
 
+
 .game .imageBox .drop-target img {
   width: 100%;
   display: none;
   height: 100%;
 }
 
-.game .imageBox.over .drop-target {
-  background: #333;
+.game .imageBox.over .drop-target  {
+  background-image: url("/images/balloon-over.svg");
 }
 
 .game .imageBox.wrong {
