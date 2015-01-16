@@ -1,14 +1,21 @@
 .win {
   background-color: #428aa1;
 }
+
+.win .btn-bar{
+  margin-top: 200px;
+  width: 400px;
+  margin: 0px auto;
+}
+
 .win .btn {
-  display: block;
+  display: inline-block;
   margin: 0px auto;
   background-color: blue;
   padding: 20px;
-  width: 40%;
+  width: 100px;
   font-size: 25px;
   color: #fff;
-  margin-top: 50%;
   text-align: center;
+  cursor: pointer;
 }
