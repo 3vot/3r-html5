@@ -5,8 +5,8 @@
   <img src="/images/win-<%= @robot %>.png" />
 
   <div class="btn-bar">
-  	<a class="btn">Share</a>
-  	<a class="btn">Next</a>
+  	<a class="btn btn-share">Share</a>
+  	<a class="btn btn-next">Next</a>
   </div>
 
 </div>
