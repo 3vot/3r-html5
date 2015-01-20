@@ -11,6 +11,7 @@
 		{"sound": "", "name": "canOpener", "image": "" ,"level":2 },
 		{"sound": "", "name": "hairDryer", "image": "" ,"level":2 },
 		{"sound": "", "name": "busyTone", "image": "" ,"level":2 },
+		{"sound": "", "name": "vibrator", "image": "" ,"level":2 },
 		{"sound": "", "name": "floppy", "image": "" ,"level":3 },
 		{"sound": "", "name": "nintendo", "image": "" ,"level":3 },
 		{"sound": "", "name": "slideProjector", "image": "" ,"level": 3 },
