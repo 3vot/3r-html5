@@ -1,0 +1,14 @@
+<div class="social screen">
+
+  <p>Share with your friends</p>
+
+  <div class="btn-bar">
+  	<a class="btn btn-share btn-facebook ">Facebook</a>
+    <a class="btn btn-share btn-twitter ">Twitter</a>
+  </div>
+
+  <div class="btn-bar">
+    <a class="btn btn-share btn-keep ">Keep Playing</a>
+  </div>
+
+</div>

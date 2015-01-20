@@ -15,8 +15,6 @@ html, body {
 }
 
 
-
-
 .header {
   position: absolute;
   width: 100%;
@@ -29,7 +27,6 @@ html, body {
   z-index: 100;
 }
 
-
 .header .hearts {
   float: right;
 }
@@ -39,7 +36,7 @@ html, body {
   height: 20px;
   width: 20px;
   background-image: url("/images/heart-empty.svg");
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
 }
 
 .header .hearts .heart.active {
@@ -63,5 +60,4 @@ html, body {
 @import url('win.css');
 @import url('retry.css');
 @import url('home.css');
-
-
+@import url('social.css');

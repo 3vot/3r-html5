@@ -6,9 +6,10 @@ function Win(container, header, data ){
 	var robot = "";
 	this.data = data;
 	if(data.level ==1) robot = "fax";
-	else if(data.level == 2) robot = "level2";
-	else if(data.level == 3) robot = "level3";
+	else if(data.level == 2) robot = "number5";
+	else if(data.level == 3) robot = "cyclone";
 
+	this.robot = robot;
 	container.innerHTML = Layout( { robot: robot, level: this.data.level } );
 	
 	this.container = container.querySelector(".win");
@@ -19,12 +20,11 @@ function Win(container, header, data ){
 	var _this = this;
 	button.onclick = function(){
 		_this.data.level++;
-		ScreenManager.emit( "go", { screen: "game", data: { level: _this.data.level } } );
+		ScreenManager.emit( "go", { screen: "game", data: { level: _this.data.level, robot: this_robot } } );
 	}
 
 	share.onclick = function(){
-		if( _this.data.level < 3 ) ScreenManager.emit( "go", { screen: "share", data: { level: _this.data.level } } );
-		else ScreenManager.emit("go", { screen: "home", data: { level: 1 } });
+		ScreenManager.emit("go", { screen: "social", data: { level: _this.data.level, robot: _this.robot } });
 	}
 
 }
