@@ -1,0 +1,24 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("/fonts/opensans-regular.woff") format("woff"), url("/fonts/opensans-regular.eot") format("embedded-opentype");
+}
+
+@font-face {
+  font-family: "Source Sans";
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  height: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}

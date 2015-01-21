@@ -15,49 +15,4 @@ html, body {
 }
 
 
-.header {
-  position: absolute;
-  width: 100%;
-  display: none;
-  height: 37px;
-  background-color: #a43e27;
-  padding: 7px;
-  left: 0px;
-  right: 0px;
-  z-index: 100;
-}
 
-.header .hearts {
-  float: right;
-}
-
-.header .hearts .heart {
-  display: inline-block;
-  height: 20px;
-  width: 20px;
-  background-image: url("/images/heart-empty.svg");
-  background-repeat: no-repeat;
-}
-
-.header .hearts .heart.active {
-  background-image: url("/images/heart-full.svg");
-}
-
-.container {
-  height: 100%;
-  max-height: 100%;
-}
-
-.screen {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-  height: 100%;
-  padding-top: 30px;
-}
-
-@import url('game.css');
-@import url('win.css');
-@import url('retry.css');
-@import url('home.css');
-@import url('social.css');

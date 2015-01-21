@@ -1,13 +1,5 @@
-@import url("http://fonts.googleapis.com/css?family=Source+Sans+Pro:600");
 
-@font-face {
-  font-family: "Oswald";
-  src: url("/fonts/oswald.otf");
-}
-@font-face {
-  font-family: "Crete Round";
-  src: url(/fonts/crete-round.otf);
-}
+
 @font-face {
   font-family: "Open Sans";
   src: url(/fonts/opensans-regular.woff) format("woff"), url(/fonts/opensans-regular.eot) format("embedded-opentype");
