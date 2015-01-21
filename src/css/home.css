@@ -3,19 +3,17 @@
   margin: 0 auto;
   background-color: #a43e27;
   padding-top: 0px;
-
 }
 
 .home .border {
   border-style: solid;
   border-width: 1px;
-  margin: 2.5% 2.5% 2.5% 2.5%;
+  margin: 0 auto;
   border-color: #FFFFFF;
-  position: absolute;
-  width: 95%;
+  width: 100%;
+  max-width: 350px;
   height: 95%;
-  pointer-events:none;
-
+  margin-top: 20px;
 }
 
 .home .logo {
@@ -26,7 +24,7 @@
   background-image: url("/images/home.svg");
   background-repeat: no-repeat;
   background-position: center;
-  margin: 0px auto;
+  margin: 0px auto; 
 }
 
 .home .label {
@@ -37,6 +35,7 @@
   font-family: "Crete Round";
   color: #231D19;
 }
+
 .home .info {
   max-width: 200px;
   width: 60%;
@@ -46,6 +45,7 @@
   font-size: 10pt;
   text-transform: uppercase;
 }
+
 .home .btn {
   display: block;
   font-family: "Source Sans";
@@ -56,4 +56,5 @@
   width: 70px;
   text-align: center;
   color: #FFFFFF;
+  cursor: pointer;
 }
