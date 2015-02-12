@@ -1,5 +1,5 @@
 {
-    "name": "r3_app",
+    "name": "r3app",
     "version": "0.0.1",
     "description": "",
     "repository": {
@@ -36,9 +36,7 @@
         "require-dir": "^0.1.0",
         "rimraf": "^2.2.8",
         "vinyl-source-stream": "~0.1.1",
-        "watchify": "~1.0.2"
-    },
-    "dependencies": {
+        "watchify": "~1.0.2",
         "brfs": "~1.2.0",
         "domify": "~1.3.1",
         "events": "~1.0.2",
