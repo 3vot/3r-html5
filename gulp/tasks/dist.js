@@ -14,8 +14,8 @@ gulp.task('clean', ['build'], function() {
 gulp.task('copy', ['clean'], function() {
     return gulp.src('./build/**')
     .pipe(revall({
-        ignore: [/^\/favicon.ico$/g, /^\/index.html/g, /^\/captions/g, /^\/images\/static/g, /^\/sounds/g, /^\/images\/social/g, /^\/images\/map\/dist/g]//,
-        //prefix: global.previewUrl || p.previewUrl
+        ignore: [/^\/favicon.ico$/g, /^\/index.html/g, /^\/images/g]//,
+        //prefix: global.previewUrl
     }))
     .pipe(gulp.dest('dist'));
 });
