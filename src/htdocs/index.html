@@ -22,66 +22,71 @@
     
       <div class="logo">Clay</div>
 
-      <ul>
-        <li class="section">Documentation</li>
-        <li>What is CLAY?</li>
-        <li>Generate Api Key</li>
-        <li>Installation</li>
-   
 
-      </ul>
+        <div data-section="" class="section  section-documentation">
+          <span>Documentation</span>
+          <ul class="links">
+            <li>What is CLAY?</li>
+            <li>Generate Api Key</li>
+            <li>Installation</li>
+            </ul>
+       
+        </div>
 
-      <ul>
-        <li class="section">Clay Receipts</li>
+      <div  data-section="receipts" class="section section-receipts">
+        <span>Clay Receipts</span>
+        <ul class="links">
         <li>Download</li>
+
         <li>Setup</li>
         <li>Folder Structure</li>
         <li>Clay4Salesforce</li>
       </ul>
+    </div>
 
-      <ul>
-        <li class="section">Clay4Salesforce</li>
-        <li>Overview</li>
-        <li>Installation</li>
-        <li>ISV...</li>
-      </ul>
-
-      <ul>
-        <li class="section">Clay CLI</li>
-        <li>Create</li>
-        <li>Development</li>
-        <li>Preview</li>
-        <li>Publish</li>
-        <li>Salesforce</li>
-      </ul>
-
-
-
-      <br/>
-      <br/>
-      <ul>
-        <li class="section">Comming Soon... </li>
+      <div  data-section="clay4salesforce" class="section section-clay4salesforce">
+        <span>Clay4Salesforce</span>
+        <ul class="links">
+          <li>Overview</li>
+          <li>Installation</li>
+          <li>ISV...</li>
         </ul>
+      </div>
 
-      <ul>
-        <li class="section">Clay Components</li>
+      <div data-section-"cli" class="section section-cli">
+        <span>Clay CLI</span>
+        <ul class="links">
+          <li>Create</li>
+          <li>Development</li>
+          <li>Preview</li>
+          <li>Publish</li>
+          <li>Salesforce</li>
+        </ul>
+      </div>
+
+
+
+      <br/>
+      <br/>
+      <br/><br/><br/>
+      
+      <div data-section-"comingsoon" class="section active">
+        <span>Coming soon</span>
+      
+      <ul style="display: block" class="links">
+      
+        
+        
         <li>Clay Model</li>
         <li>Clay Touch</li>
         <li>Clay Device</li>
-      </ul>
-
-      <ul>
-        <li class="section">Modifying Receipts</li>
         <li>Gulp Rewrite</li>
         <li>Image Resize</li>
         <li>Less, Sass</li>
         <li>Browserify</li>
       </ul>
 
-      <ul>
-        <li class="section">Clay Metrics</li>
-        <li>Overview</li>
-      </ul>
+    </div>
 
     </div>
 
@@ -89,7 +94,7 @@
       <div class="content">
         
         <div  data-id="1" class="block content-1">
-          <h1 style="padding: 0px;">Documentation</h1>
+          <h1 class="noticable" data-section="documentation" style="padding: 0px;">Documentation</h1>
           <p >Command Line tool to build and Publish Web and Mobile Applications</p>
 
           <hr/>
@@ -162,7 +167,7 @@
 
         <div class="block content-2 register">
 
-          <h1>Get an Api Key</h1>
+          <h2>Get an Api Key</h2>
 
           <p>First step is to register to get an API KEY by Email</p>
 
@@ -178,13 +183,13 @@
 
         <div class="block content-3">
           
-          <h1>Installation</h1>          
+          <h2>Installation</h2>          
 
           <p  data-id="2" class="content-block">Clay is an Node Package Module and used NODE.JS to run on Mac, Linux and Windows Computers.</p>
 
           <p>The first step is to install NODE.JS which is a really easy with it's installers.</p>
 
-          <h2 >Install CLAY with NPM</h2>
+          <h3 >Install CLAY with NPM</h3>
 
           <p data-id="3" class="content-block">After NODE.JS is installed go to your Terminal ( CMD in Windows ) and install Clay CLI using the command on the right. Clay is installed globally. You may need to use SUDO on unix. ie: sudo npm install...</p>
 
@@ -192,7 +197,7 @@
 
         <div class="block " >
 
-        <h1>Clay Receipts</h1>
+        <h1 class="noticable" data-section="receipts">Clay Receipts</h1>
 
         <p >3VOT provide several receipts which are pre-configured development environments.</p>
 
@@ -200,7 +205,7 @@
 
         <p>Start by downloading or cloning them from Github.</p>
 
-          <h2 >Setup of Receipts</h1>
+          <h2 >Setup of Receipts</h2>
           
           <p>Once you have downloaded/cloned a receipt - go to Terminal or CMD in Windows and navigate to your project root folder.</p>
 
@@ -263,7 +268,7 @@
 
 
         <div class="block content-6">
-          <h1>Clay4Salesforce</h1>
+          <h1 class="noticable" data-section="clay4salesforce">Clay4Salesforce</h1>
 
           <p>If - you are going to use Clay for Salesforce, next step is to install the Package on your Org. Else - Advance to Clay Command Line Tool</p>
 
@@ -288,7 +293,7 @@
 
         <div class="block content-5">
         
-          <h1>Clay Command Line Tool</h1>
+          <h1 class="noticable" data-section="cli" class="noticable">Clay Command Line Tool</h1>
 
           <p>The Command Line is the Developers most important tool when developing apps. CLAY CLI makes is really easy to publish and preview apps online.</p>
 

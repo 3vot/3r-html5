@@ -71,7 +71,7 @@
           <h4>Visualforce Page: src/htdocs/index.html</h4>
             
  <code style="color: #fff">
- <pre>
+ <xmp>
               <apex:page showHeader="false" controller="ThreevotController">
 
                 <link type="href" src="{{3vot}}/app.css"/>
@@ -82,7 +82,7 @@
 
                 <script src="{{3vot}}/app.js"/>  
       </apex:page> 
-      </pre>      
+      </xmp>      
             </code> 
         </div>
 

@@ -58,3 +58,73 @@ emailBtn.onclick = function(){
   })
   
 }
+
+var positions = document.querySelectorAll('h1.noticable');
+
+var positionMap = [];
+var positionsArray = [];
+for (var i = positions.length - 1; i >= 0; i--) {
+	var el = positions[i];
+	positionMap[el.offsetTop] = el; 
+	positionsArray.push( el.offsetTop );
+};
+
+function debounce(fn, delay) {
+  var timer = null;
+  return function () {
+    var context = this, args = arguments;
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      fn.apply(context, args);
+    }, delay);
+  };
+}
+
+window.addEventListener('scroll', throttle(scrollIT, 250) );
+
+
+function scrollIT() {
+    var y_scroll_pos = window.pageYOffset;
+    var current;
+    
+    for (var i = positionsArray.length - 1; i >= 0; i--) {
+    	var position = positionsArray[i];
+    	if( position - 400 < y_scroll_pos ) current = positionMap[position]
+    };
+
+  var section = current.dataset.section;
+  var menuItem = document.querySelector( ".section-" + section )
+  
+  var items = document.querySelectorAll(".menu .section");
+  for (var i = items.length - 1; i >= 0; i--) {
+  	items[i].classList.remove("active")
+  };
+
+  menuItem.classList.add("active");
+  
+}
+
+function throttle(fn, threshhold, scope) {
+  threshhold || (threshhold = 250);
+  var last,
+      deferTimer;
+  return function () {
+    var context = scope || this;
+
+    var now = +new Date,
+        args = arguments;
+    if (last && now < last + threshhold) {
+      // hold on to it
+      clearTimeout(deferTimer);
+      deferTimer = setTimeout(function () {
+        last = now;
+        fn.apply(context, args);
+      }, threshhold);
+    } else {
+      last = now;
+      fn.apply(context, args);
+    }
+  };
+}
+
+scrollIT();
