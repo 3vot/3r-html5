@@ -12,7 +12,6 @@ var bundleLogger = require('../util/bundleLogger');
 var gulp         = require('gulp');
 var handleErrors = require('../util/handleErrors');
 var source       = require('vinyl-source-stream');
-var brfs         = require("brfs");
 
 gulp.task('browserify', function() {
   var bundler = browserify({
