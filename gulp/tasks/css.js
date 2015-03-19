@@ -7,7 +7,7 @@ var concat = require('gulp-concat');
 
 var importCss = require('gulp-import-css');
 
-gulp.task('sass', ['images'], function () {
+gulp.task('css', ['images'], function () {
   return gulp.src( 'src/css/app.css')
     .pipe(concat('app.css'))
     .on('error', handleErrors)
