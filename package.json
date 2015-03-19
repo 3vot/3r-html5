@@ -1,9 +1,7 @@
 {
-<<<<<<< HEAD
-  "name": "r3app",
-=======
-  "name": "docs",
->>>>>>> e947dc2def1c17aa9605c7a874430de7dbc5c043
+
+  "name": "html5",
+
   "version": "0.0.1",
   "description": "",
   "repository": {
@@ -11,13 +9,9 @@
     "url": ""
   },
   "browserify": {
-<<<<<<< HEAD
+
     "transform": []
-=======
-    "transform": [
-      "browserify-eco"
-    ]
->>>>>>> e947dc2def1c17aa9605c7a874430de7dbc5c043
+
   },
   "browserify-shim": {},
   "devDependencies": {
@@ -45,13 +39,7 @@
     "watchify": "~1.0.2",
     "gulp-concat": "~2.4.3",
     "gulp-cssimport": "~1.3.1",
-    "gulp-import-css": "~0.1.2"
-  },
-  "dependencies": {
-<<<<<<< HEAD
+    "gulp-import-css": "~0.1.2",
     "clay-cli": "~2.0.10"
-=======
-    "browserify-eco": "~0.2.4"
->>>>>>> e947dc2def1c17aa9605c7a874430de7dbc5c043
   }
 }
